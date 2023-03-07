@@ -21,7 +21,7 @@ public class BizServiceTest {
     private BizService bizService;
 
     @Test
-    public void process() {
-        bizService.process();
+    public void sayHello() {
+        bizService.sayHello();
     }
 }

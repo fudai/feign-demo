@@ -34,6 +34,11 @@
             <artifactId>lombok</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.fudai.spring.feign</groupId>
+            <artifactId>provider-api</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

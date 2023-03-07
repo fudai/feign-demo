@@ -8,10 +8,14 @@
  */
 package com.fudai.spring.feign.provider.controller;
 
+import com.fudai.spring.feign.provider.api.FeignClientApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 /**
  * @className: ServiceProviderController
@@ -22,12 +26,37 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/provider")
 @Slf4j
-public class ServiceProviderController {
+public class ServiceProviderController implements FeignClientApi {
 
-    @GetMapping("/hello")
+    @Override
     public String sayHello(){
         log.info("hello");
         return "hello";
     }
+
+    @Override
+    public String testMultipart1(List<MultipartFile> files) {
+        log.info("testMultipart1文件：{}", files);
+        return "suceess";
+    }
+
+    @Override
+    public String testMultipart2(MultipartRequest request) {
+        log.info("testMultipart2文件：{}", request);
+        return "suceess";
+    }
+
+    @Override
+    public String testMultipart3(MultipartFile file) {
+        log.info("testMultipart3文件：{}", file);
+        return "suceess";
+    }
+
+    @Override
+    public String testMultipart4(SingleMultipartRequest request) {
+        log.info("testMultipart3文件：{}", request);
+        return "suceess";
+    }
+
 
 }

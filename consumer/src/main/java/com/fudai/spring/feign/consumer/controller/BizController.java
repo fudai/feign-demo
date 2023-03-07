@@ -11,9 +11,10 @@ package com.fudai.spring.feign.consumer.controller;
 import com.fudai.spring.feign.consumer.service.BizService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * @className: BizController
@@ -31,7 +32,31 @@ public class BizController {
 
     @GetMapping("/test")
     public String sayHello(){
-        bizService.process();
+        bizService.sayHello();
+        return "success";
+    }
+
+    @PostMapping("/testMultipart1")
+    public String testMultipart1(MultipartFile file) {
+        bizService.testMultipart1(file);
+        return "success";
+    }
+
+    @PostMapping("/testMultipart2")
+    public String testMultipart2(MultipartFile file) {
+        bizService.testMultipart2(file);
+        return "success";
+    }
+
+    @PostMapping("/testMultipart3")
+    public String testMultipart3(MultipartFile file) {
+        bizService.testMultipart3(file);
+        return "success";
+    }
+
+    @PostMapping("/testMultipart4")
+    public String testMultipart4(MultipartFile file) {
+        bizService.testMultipart4(file);
         return "success";
     }
 }
